@@ -1,0 +1,14 @@
+<article class="card">
+  <a rel="noopener noreferrer" [title]="storyUrl" [href]="storyUrl" class="card__content">
+    <header>
+      <img src="assets/icons/clock.svg" />
+      <span>{{ createdAt }} by {{ author }}</span>
+    </header>
+    <h3>
+      {{ storyTitle }}
+    </h3>
+  </a>
+  <aside class="card__fav" (click)="toggleFavoriteState()">
+    <img src="assets/icons/{{ favoriteState ? 'heart-fill' : 'heart-outline' }}.svg" />
+  </aside>
+</article>

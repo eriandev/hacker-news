@@ -51,7 +51,7 @@
   --color-gray-400: #979797;
   --color-gray-500: #767676;
   --color-gray-600: #6b6b6b;
-  --color-gray-600: #2e2e2e;
+  --color-gray-700: #2e2e2e;
 
   font-size: var(--size-base);
 }
@@ -71,6 +71,7 @@ body {
   line-height: var(--leading-lg);
   font-family: var(--font-roboto);
   background-color: var(--color-gray-100);
+  -webkit-tap-highlight-color: transparent;
 }
 
 input,

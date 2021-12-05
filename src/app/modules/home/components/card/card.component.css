@@ -1,0 +1,71 @@
+.card {
+  width: 100%;
+  display: grid;
+  max-width: 550px;
+  align-items: center;
+  border-radius: var(--rounded);
+  background: var(--color-white);
+  border: solid 1px var(--color-gray-400);
+  grid-template-columns: auto fit-content(100%);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.card__content {
+  display: grid;
+  gap: 6px;
+  padding: 16px 16px 14px 26px;
+}
+
+.card__content header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: var(--size-xs);
+  color: var(--color-gray-500);
+}
+
+.card__content header img {
+  width: 16px;
+  height: 16px;
+}
+
+.card__content h3 {
+  display: -webkit-box;
+  font-weight: 500;
+  font-size: var(--size-sm);
+  color: var(--color-gray-600);
+  line-height: var(--leading-lg);
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.card__fav {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  cursor: pointer;
+  padding-left: 22px;
+  padding-right: 22px;
+  place-items: center;
+  background: var(--color-gray-200);
+  border-top-right-radius: var(--rounded);
+  border-bottom-right-radius: var(--rounded);
+}
+
+@media (pointer: fine) {
+  .card:hover {
+    opacity: 0.4;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .card__content h3 {
+    -webkit-line-clamp: 2;
+  }
+}
