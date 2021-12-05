@@ -1,0 +1,4 @@
+<div class="toggle">
+  <div [ngClass]="{ active: ativeOption === 'all' }" (click)="changeActive('all')">All</div>
+  <div [ngClass]="{ active: ativeOption === 'faves' }" (click)="changeActive('faves')">My faves</div>
+</div>
