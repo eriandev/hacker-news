@@ -7,9 +7,10 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { CardComponent } from './components/card/card.component';
 import { RelativeTimePipe } from './pipes/relative-time.pipe';
 import { SelectComponent } from './components/select/select.component';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
 
 @NgModule({
-  declarations: [LayoutComponent, CardComponent, RelativeTimePipe, SelectComponent],
+  declarations: [LayoutComponent, CardComponent, RelativeTimePipe, SelectComponent, ClickOutsideDirective],
   providers: [NewsService],
   imports: [CommonModule, HomeRoutingModule],
 })
