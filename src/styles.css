@@ -1,1 +1,125 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(''), url('assets/fonts/roboto-v29-latin-regular.woff2') format('woff2'),
+    url('assets/fonts/roboto-v29-latin-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local(''), url('assets/fonts/roboto-v29-latin-500.woff2') format('woff2'),
+    url('assets/fonts/roboto-v29-latin-500.woff') format('woff');
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  border: 0 solid;
+}
+
+:root {
+  --size-xs: 11px;
+  --size-sm: 14px;
+  --size-base: 16px;
+
+  --font-roboto: 'Roboto', system-ui, -apple-system, Ubuntu, sans-serif;
+
+  --leading-xl: 1.75;
+  --leading-lg: 1.43;
+  --leading-base: normal;
+
+  --spacing-tight: 0.25px;
+
+  --rounded: 6px;
+  --rounded-sm: 4px;
+
+  --color-red: #dd0031;
+  --color-blue: #1797ff;
+
+  --color-white: #fff;
+  --color-black: #343434;
+
+  --color-gray-100: #fcfcfc;
+  --color-gray-200: #f5f5f5;
+  --color-gray-300: #eaeaea;
+  --color-gray-400: #979797;
+  --color-gray-500: #767676;
+  --color-gray-600: #6b6b6b;
+  --color-gray-600: #2e2e2e;
+
+  font-size: var(--size-base);
+}
+
+html {
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--color-gray-600);
+  line-height: var(--leading-lg);
+  font-family: var(--font-roboto);
+  background-color: var(--color-gray-100);
+}
+
+input,
+button {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  line-height: 1.15;
+  font-family: inherit;
+}
+
+button,
+[type='button'] {
+  cursor: pointer;
+  text-transform: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-appearance: button;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+pre {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+hr {
+  height: 0;
+  color: inherit;
+  border-top-width: 1px;
+}
+
+img {
+  border-style: solid;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
