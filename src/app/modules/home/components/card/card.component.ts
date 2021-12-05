@@ -14,6 +14,7 @@ export class CardComponent {
   @Input() public isFavorite: boolean = false;
 
   @Output() changeFav = new EventEmitter<{ id: number; fav: boolean }>();
+
   public favoriteState: boolean;
 
   constructor() {

@@ -2,7 +2,7 @@
   <a rel="noopener noreferrer" [title]="storyUrl" [href]="storyUrl" class="card__content">
     <header>
       <img src="assets/icons/clock.svg" />
-      <span>{{ createdAt }} by {{ author }}</span>
+      <span>{{ createdAt | relativeTime }} by {{ author }}</span>
     </header>
     <h3>
       {{ storyTitle }}
