@@ -1,0 +1,14 @@
+<div class="select">
+  <div class="select__block" (click)="isActive = !isActive">
+    <span>{{ selected }}</span>
+    <img src="assets/icons/chevron.svg" [ngClass]="{ 'rotate-180': isActive }" />
+  </div>
+  <div *ngIf="isActive" [@appearanceAnimation] class="select__options">
+    <ul>
+      <li *ngFor="let topic of topics.data" (click)="changeSelected(topic.name)">
+        <img [src]="topic.icon" />
+        <span>{{ topic.name }}</span>
+      </li>
+    </ul>
+  </div>
+</div>
