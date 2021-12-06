@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { NewsService } from './services/news.service';
+import { FavoritesService } from './services/favorites.service';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { CardComponent } from './components/card/card.component';
 import { RelativeTimePipe } from './pipes/relative-time.pipe';
@@ -21,7 +22,7 @@ import { CardsComponent } from './components/cards/cards.component';
     ToggleComponent,
     CardsComponent,
   ],
-  providers: [NewsService],
+  providers: [NewsService, FavoritesService],
   imports: [CommonModule, HomeRoutingModule],
 })
 export class HomeModule {}
