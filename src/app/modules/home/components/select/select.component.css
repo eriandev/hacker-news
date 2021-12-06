@@ -20,6 +20,7 @@
 
 .select__block span {
   font-size: var(--size-sm);
+  text-transform: capitalize;
   line-height: var(--leading-lg);
 }
 

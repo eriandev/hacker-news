@@ -16,7 +16,7 @@ import topicsJSON from 'src/assets/data/topic-list.json';
 export class SelectComponent {
   @Output() changeFav = new EventEmitter<{ selected: string }>();
 
-  @Input() public selected: string = 'Select your news';
+  @Input() public selected: string | null = 'Select your news';
 
   public isActive: boolean = false;
   public topics = topicsJSON;

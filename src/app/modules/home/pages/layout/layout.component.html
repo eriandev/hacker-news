@@ -9,6 +9,6 @@
 </section>
 
 <main class="container">
-  <app-select></app-select>
-  <app-cards></app-cards>
+  <app-select [selected]="currentSelected" (changeFav)="getNews($event.selected)"></app-select>
+  <app-cards [cardsData]="newsData"></app-cards>
 </main>

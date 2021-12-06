@@ -1,6 +1,6 @@
 <div class="select" appClickOutside (clickOutside)="isActive = false">
   <div class="select__block" (click)="isActive = !isActive">
-    <span>{{ selected }}</span>
+    <span>{{ selected ?? 'Select your news' }}</span>
     <img src="assets/icons/chevron.svg" [ngClass]="{ 'rotate-180': isActive }" />
   </div>
   <div *ngIf="isActive" [@appearanceAnimation] class="select__options">
