@@ -16,7 +16,7 @@ export class LayoutComponent implements OnInit {
     const limit = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.body.clientHeight);
     const scrolled = window.scrollY + window.innerHeight;
     if (limit === scrolled && !this.loading) {
-      if (this.currentSelected) {
+      if (this.currentSelected && this.currentPage < this.maxPage) {
         this.loading = true;
         this.currentPage++;
         this.getNews(this.currentSelected, this.currentPage);
@@ -24,6 +24,7 @@ export class LayoutComponent implements OnInit {
     }
   }
 
+  private maxPage = 1;
   private currentPage = 0;
 
   public currentSelected;
@@ -51,6 +52,7 @@ export class LayoutComponent implements OnInit {
       .getSelectedNews(query, page)
       .pipe(take(1))
       .subscribe((newsResponse) => {
+        this.maxPage = newsResponse.nbPages;
         this.newsData = isAnotherQuery ? newsResponse.hits : [...this.newsData, ...newsResponse.hits];
         this.loading = false;
       });

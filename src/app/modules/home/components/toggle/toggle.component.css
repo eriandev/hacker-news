@@ -2,6 +2,7 @@
   display: flex;
   color: #606060;
   font-weight: 500;
+  user-select: none;
   text-align: center;
   justify-items: center;
   line-height: var(--leading-xl);

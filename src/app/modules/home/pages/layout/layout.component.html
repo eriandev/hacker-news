@@ -17,12 +17,12 @@
   <app-cards [cardsData]="newsData" (removedFav)="reloadFavsView($event)"></app-cards>
 </main>
 
-<aside *ngIf="loading" class="loading">
+<aside *ngIf="loading && !favsView" class="loading">
   <img src="assets/icons/pacman.svg" alt="Loading..." />
   <span>Loading...</span>
 </aside>
 
-<aside *ngIf="favsView && !newsData.length" class="no-favs">
+<aside *ngIf="favsView && !newsData?.length" class="no-favs">
   <span>No favorites yet</span>
   <p>Mark your favorite news and always have them here</p>
 </aside>

@@ -1,5 +1,11 @@
 <article class="card">
-  <a rel="noopener noreferrer" [title]="storyUrl" [href]="storyUrl" class="card__content">
+  <a
+    rel="noopener noreferrer"
+    [target]="storyUrl ? '_blank' : '_self'"
+    [title]="storyUrl ?? 'No link'"
+    [href]="storyUrl ?? '#'"
+    class="card__content"
+  >
     <header>
       <img src="assets/icons/clock.svg" />
       <span>{{ createdAt | relativeTime }} by {{ author }}</span>

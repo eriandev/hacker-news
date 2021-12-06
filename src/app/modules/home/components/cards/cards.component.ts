@@ -14,7 +14,15 @@ export class CardsComponent {
   constructor(private readonly storageService: StorageService) {}
 
   public addFavNew(newFav: CardData) {
-    this.storageService.setInArray<CardData>('favorites', newFav);
+    let exists = [];
+    const currentFavorites = this.storageService.get<CardData[]>('favorites');
+    if (currentFavorites) {
+      exists = currentFavorites.filter((fav) => fav.objectID === newFav.objectID);
+    }
+
+    if (!exists?.length) {
+      this.storageService.setInArray<CardData>('favorites', newFav);
+    }
   }
 
   public removeFavNew(objectID: string) {
