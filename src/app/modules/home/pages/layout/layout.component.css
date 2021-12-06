@@ -24,4 +24,22 @@ main {
   margin-right: auto;
   padding-left: 16px;
   padding-right: 16px;
+  padding-bottom: 24px;
+}
+
+aside {
+  width: 100%;
+  display: grid;
+  text-align: center;
+  padding-bottom: 24px;
+  justify-items: center;
+}
+
+aside img {
+  width: 48px;
+  height: 48px;
+}
+
+aside span {
+  font-weight: 500;
 }

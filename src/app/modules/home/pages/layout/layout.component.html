@@ -12,3 +12,8 @@
   <app-select [selected]="currentSelected" (changeFav)="getNews($event.selected)"></app-select>
   <app-cards [cardsData]="newsData"></app-cards>
 </main>
+
+<aside *ngIf="loading">
+  <img src="assets/icons/pacman.svg" alt="Loading..." />
+  <span>Loading...</span>
+</aside>
