@@ -5,8 +5,8 @@ import { DATE_UNITS } from '../utils/constants';
   name: 'relativeTime',
 })
 export class RelativeTimePipe implements PipeTransform {
-  transform(value: string): string {
-    return this.getTimeAgo(value);
+  transform(value?: string | null): string {
+    return value ? this.getTimeAgo(value) : '';
   }
 
   private getSecondsDiff(timestamp: Date) {
