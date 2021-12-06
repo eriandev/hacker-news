@@ -9,7 +9,7 @@ export class NewsService {
 
   constructor(private http: HttpClient) {}
 
-  public getSelectedNews(query: string, page: number = 0): Observable<NewsResponse> {
+  public getSelectedNews(query: string, page: number): Observable<NewsResponse> {
     return this.http.get<NewsResponse>(`${this.API_URL}search_by_date?query=${query}&page=${page}`);
   }
 }

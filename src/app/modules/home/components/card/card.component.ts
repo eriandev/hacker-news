@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CardData } from 'src/app/modules/home/interfaces/card';
 
 @Component({
   selector: 'app-card',
@@ -7,13 +8,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class CardComponent {
   @Input() public author?: string = '';
+  @Input() public objectID?: string = '';
+  @Input() public createdAt?: string = '';
   @Input() public storyUrl?: string | null = '';
-  @Input() public createdAt?: string | null = '';
   @Input() public storyTitle?: string | null = '';
-  @Input() public createdAtId?: number | null = 0;
   @Input() public isFavorite?: boolean = false;
 
-  @Output() changeFav = new EventEmitter<{ id?: number | null; fav: boolean }>();
+  @Output() addFav = new EventEmitter<CardData>();
+  @Output() unFav = new EventEmitter<string>();
 
   public favoriteState?: boolean;
 
@@ -23,9 +25,16 @@ export class CardComponent {
 
   public toggleFavoriteState(): void {
     this.favoriteState = !this.favoriteState;
-    this.changeFav.emit({
-      id: this.createdAtId,
-      fav: this.favoriteState,
-    });
+
+    const data: CardData = {
+      is_favorite: true,
+      author: this.author,
+      objectID: this.objectID,
+      story_url: this.storyUrl,
+      created_at: this.createdAt,
+      story_title: this.storyTitle,
+    }
+
+    this.favoriteState ? this.addFav.emit(data) : this.unFav.emit(this.objectID)
   }
 }
