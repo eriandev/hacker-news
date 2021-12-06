@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StorageService {
   constructor() {}
 
   public set<T>(storeName: string, data: T): void {
-    window.localStorage.setItem(storeName, JSON.stringify(data))
+    window.localStorage.setItem(storeName, JSON.stringify(data));
   }
 
   public setInArray<T>(storeName: string, data: T): void {

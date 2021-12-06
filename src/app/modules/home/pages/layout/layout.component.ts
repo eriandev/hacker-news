@@ -16,12 +16,12 @@ export class LayoutComponent implements OnInit, OnDestroy {
   public currentSelected;
 
   constructor(private readonly newsService: NewsService, private readonly storageService: StorageService) {
-    this.currentSelected = this.storageService.get<string>('selected')
+    this.currentSelected = this.storageService.get<string>('selected');
   }
 
   ngOnInit(): void {
-    if(this.currentSelected) {
-      this.getNews(this.currentSelected)
+    if (this.currentSelected) {
+      this.getNews(this.currentSelected);
     }
   }
 
@@ -33,10 +33,11 @@ export class LayoutComponent implements OnInit, OnDestroy {
   public getNews(query: string, page: number = 0) {
     this.currentSelected = query;
     this.storageService.set('selected', query);
-    this.newsService.getSelectedNews(query, page)
+    this.newsService
+      .getSelectedNews(query, page)
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(newsResponse => {
-        this.newsData = newsResponse.hits
-      })
+      .subscribe((newsResponse) => {
+        this.newsData = newsResponse.hits;
+      });
   }
 }
