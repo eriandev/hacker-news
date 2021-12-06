@@ -1,0 +1,10 @@
+<section class="container cards">
+  <app-card *ngFor="let cardData of cardsData"
+    [author]="cardData.author"
+    [storyUrl]="cardData.story_url"
+    [createdAt]="cardData.created_at"
+    [storyTitle]="cardData.story_title"
+    [createdAtId]="cardData.created_at_i"
+    [isFavorite]="cardData.is_favorite"
+  ></app-card>
+</section>

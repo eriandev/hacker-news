@@ -9,6 +9,7 @@ import { RelativeTimePipe } from './pipes/relative-time.pipe';
 import { SelectComponent } from './components/select/select.component';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { ToggleComponent } from './components/toggle/toggle.component';
+import { CardsComponent } from './components/cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ToggleComponent } from './components/toggle/toggle.component';
     SelectComponent,
     ClickOutsideDirective,
     ToggleComponent,
+    CardsComponent,
   ],
   providers: [NewsService],
   imports: [CommonModule, HomeRoutingModule],
