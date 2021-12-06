@@ -5,15 +5,24 @@
 </header>
 
 <section>
-  <app-toggle></app-toggle>
+  <app-toggle (changeView)="toggleView($event)"></app-toggle>
 </section>
 
 <main class="container">
-  <app-select [selected]="currentSelected" (changeFav)="getNews($event.selected)"></app-select>
-  <app-cards [cardsData]="newsData"></app-cards>
+  <app-select
+    [selected]="currentSelected"
+    (changeFav)="getNews($event.selected)"
+    [ngClass]="{ hidden: favsView }"
+  ></app-select>
+  <app-cards [cardsData]="newsData" (removedFav)="reloadFavsView($event)"></app-cards>
 </main>
 
-<aside *ngIf="loading">
+<aside *ngIf="loading" class="loading">
   <img src="assets/icons/pacman.svg" alt="Loading..." />
   <span>Loading...</span>
+</aside>
+
+<aside *ngIf="favsView && !newsData.length" class="no-favs">
+  <span>No favorites yet</span>
+  <p>Mark your favorite news and always have them here</p>
 </aside>

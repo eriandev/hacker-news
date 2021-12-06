@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CardData } from 'src/app/modules/home/interfaces/card';
 
 @Component({
@@ -6,7 +6,7 @@ import { CardData } from 'src/app/modules/home/interfaces/card';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
   @Input() public author?: string = '';
   @Input() public objectID?: string = '';
   @Input() public createdAt?: string = '';
@@ -19,7 +19,9 @@ export class CardComponent {
 
   public favoriteState?: boolean;
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit(): void {
     this.favoriteState = this.isFavorite;
   }
 
@@ -33,8 +35,8 @@ export class CardComponent {
       story_url: this.storyUrl,
       created_at: this.createdAt,
       story_title: this.storyTitle,
-    }
+    };
 
-    this.favoriteState ? this.addFav.emit(data) : this.unFav.emit(this.objectID)
+    this.favoriteState ? this.addFav.emit(data) : this.unFav.emit(this.objectID);
   }
 }

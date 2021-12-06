@@ -6,14 +6,14 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./toggle.component.css'],
 })
 export class ToggleComponent {
-  @Output() changeFav = new EventEmitter<{ active: string }>();
+  @Output() changeView = new EventEmitter<'all' | 'faves'>();
 
   public ativeOption: string = 'all';
 
   constructor() {}
 
-  public changeActive(active: string): void {
+  public changeActive(active: 'all' | 'faves'): void {
     this.ativeOption = active;
-    this.changeFav.emit({ active });
+    this.changeView.emit(active);
   }
 }

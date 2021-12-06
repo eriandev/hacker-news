@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { take } from 'rxjs';
 import { New } from 'src/app/modules/home/interfaces/news';
+import { CardData } from 'src/app/modules/home/interfaces/card';
 import { NewsService } from 'src/app/modules/home/services/news.service';
 import { StorageService } from 'src/app/modules/shared/services/storage.service';
 
@@ -27,7 +28,9 @@ export class LayoutComponent implements OnInit {
 
   public currentSelected;
   public newsData: New[] = [];
+  public newsDataTemp: New[] = [];
   public loading: boolean = false;
+  public favsView: boolean = false;
 
   constructor(private readonly newsService: NewsService, private readonly storageService: StorageService) {
     this.currentSelected = this.storageService.get<string>('selected');
@@ -51,5 +54,28 @@ export class LayoutComponent implements OnInit {
         this.newsData = isAnotherQuery ? newsResponse.hits : [...this.newsData, ...newsResponse.hits];
         this.loading = false;
       });
+  }
+
+  public toggleView(active: 'all' | 'faves') {
+    if (active === 'all') {
+      this.favsView = false;
+      this.newsData = this.newsDataTemp;
+      this.newsDataTemp = [];
+    }
+
+    if (active === 'faves') {
+      this.favsView = true;
+      this.newsDataTemp = this.newsData;
+      this.newsData = this.storageService.get<CardData[]>('favorites') as New[];
+    }
+  }
+
+  public reloadFavsView(id: string) {
+    if (this.favsView) {
+      const currentFavs = this.storageService.get<CardData[]>('favorites');
+      if (currentFavs) {
+        this.newsData = currentFavs.filter((fav) => fav.objectID !== id) as New[];
+      }
+    }
   }
 }

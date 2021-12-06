@@ -7,5 +7,7 @@
     [createdAt]="cardData.created_at"
     [storyTitle]="cardData.story_title"
     [isFavorite]="cardData.is_favorite"
+    (addFav)="addFavNew($event)"
+    (unFav)="removeFavNew($event)"
   ></app-card>
 </section>
